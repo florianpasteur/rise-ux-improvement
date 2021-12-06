@@ -7,9 +7,19 @@
   "permissions": [],
   "content_scripts": [
     {
-      "matches": ["https://rise.articulate.com/"],
-      "js": ["contentscript.js"]
+      "matches": [
+        "https://rise.articulate.com/"
+      ],
+      "js": [
+        "contentscript.js"
+      ],
+      "css": [
+        "style.css"
+      ]
     }
+  ],
+  "web_accessible_resources": [
+    "style.css"
   ],
   "browser_action": {
     "default_title": "Does a thing when you do a thing",
