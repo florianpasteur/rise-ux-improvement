@@ -2,8 +2,12 @@
 
 const nodeUpdated = [];
 
+function nodes(selector) {
+    return Array.from(document.querySelectorAll(selector));
+}
+
 function updateNodes(selector, fn) {
-    Array.from(document.querySelectorAll(selector))
+   nodes(selector)
         .filter(e => !nodeUpdated.includes(e))
         .forEach((element, index, array) => {
         fn(element, index, array)
@@ -12,7 +16,6 @@ function updateNodes(selector, fn) {
 }
 
 setInterval(() => {
-
     updateNodes('div[data-ba-course-id]', e => {
         const a = document.createElement('a');
         a.href = 'https://rise.articulate.com/author/' + e.attributes['data-ba-course-id'].value;
@@ -20,18 +23,32 @@ setInterval(() => {
         a.innerText = "Open in new tab";
         a.classList.add("custom-button-1");
         e.appendChild(a);
-    })
+    });
 
     updateNodes('.course-folder > button',(e, i) => {
         e.addEventListener('click', function () {
             window.location = ("" + window.location).replace(/#[A-Za-z0-9_\-]*$/, '') + "#folder-" + i;
-        })
+        });
+    });
+
+    updateNodes('.course-outline-lesson .course-outline-lesson__action', (e, i) => {
+        const id = (nodes('.course-outline-lesson input')[i].id+"").replace('input-', '');
+        const a = document.createElement('a');
+        a.innerText = "Edit in new tab";
+        a.classList.add("button--outline");
+        a.classList.add("button");
+        a.target = "_blank";
+        a.href = ("" + window.location).replace(/#.*$/, '') + "#/author/details/" + id;
+        const editContentElement = e.querySelector('.course-outline-lesson__edit-content');
+        if (editContentElement) {
+            editContentElement.parentNode.prepend(a);
+        }
     });
 }, 500);
 
 
 let anchorJumpInterval = setInterval(() => {
-    let folderButtons = Array.from(document.querySelectorAll('.course-folder > button'));
+    let folderButtons = nodes('.course-folder > button');
     if (folderButtons.length > 3) {
         const folderIndex = parseInt(window.location.hash.replace("#folder-", ''));
         if (!isNaN(folderIndex) && folderIndex > 0 && folderButtons[folderIndex]) {

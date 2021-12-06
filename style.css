@@ -30,3 +30,6 @@
     background-color: #F082AC;
 }
 
+a.button--outline {
+    text-decoration: none;
+}
