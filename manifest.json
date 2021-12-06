@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Rise UX Improvement Extension",
+  "version": "1.0.0",
+  "description": "Add functionalities to Rise to help navigate and use the site",
+  "short_name": "Rise UX",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://rise.articulate.com"],
+      "js": ["contentscript.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Does a thing when you do a thing",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "512": "icons/icon512.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "512": "icons/icon512.png",
+    "128": "icons/icon128.png"
+  }
+}
