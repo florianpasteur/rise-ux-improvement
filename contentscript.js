@@ -21,7 +21,8 @@ setInterval(() => {
         a.href = 'https://rise.articulate.com/author/' + e.attributes['data-ba-course-id'].value;
         a.target = "_blank";
         a.innerText = "Open in new tab";
-        a.classList.add("custom-button-1");
+        a.classList.add("button--outline");
+        a.classList.add("button");
         e.appendChild(a);
     });
 
