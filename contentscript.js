@@ -27,7 +27,7 @@ setInterval(() => {
             window.location = ("" + window.location).replace(/#[A-Za-z0-9_\-]*$/, '') + "#folder-" + i;
         })
     });
-}, 1000);
+}, 500);
 
 
 let anchorJumpInterval = setInterval(() => {
