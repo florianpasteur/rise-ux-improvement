@@ -1,5 +1,3 @@
-
-
 const nodeUpdated = [];
 
 function nodes(selector) {
@@ -46,7 +44,6 @@ setInterval(() => {
         }
     });
 }, 500);
-
 
 let anchorJumpInterval = setInterval(() => {
     let folderButtons = nodes('.course-folder > button');
