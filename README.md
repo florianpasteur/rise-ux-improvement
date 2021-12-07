@@ -11,6 +11,7 @@ Listed below the functionalities added by the extension
 ## Bookmark a folder 
 
 Click on a folder then you can bookmark the page
+
 ![Bookmark preview](./docs/media/bookmark-preview.png)
 
 ## Open Courses in a new tab
