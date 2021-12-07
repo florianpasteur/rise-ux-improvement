@@ -5,3 +5,11 @@ a.button--outline {
 div[data-ba-course-id] a.button--outline {
     margin: 0 0 25px 25px;
 }
+
+.courses-folder-sidebar--questionBanks_off {
+    width: 50rem !important;
+}
+
+.courses-list .courses-layout-wrapper {
+    left: 50rem !important;
+}
