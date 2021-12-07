@@ -24,9 +24,9 @@ setInterval(() => {
         e.appendChild(a);
     });
 
-    updateNodes('.course-folder > button',(e, i) => {
+    updateNodes('.course-folder > button',(e) => {
         e.addEventListener('click', function () {
-            window.location = ("" + window.location).replace(/#[A-Za-z0-9_\-]*$/, '') + "#folder-" + i;
+            window.location = ("" + window.location).replace(/#.*$/, '') + "#folder:" + this.innerText.replace(/\W/g, '');
         });
     });
 
@@ -45,13 +45,14 @@ setInterval(() => {
     });
 }, 500);
 
-let anchorJumpInterval = setInterval(() => {
-    let folderButtons = nodes('.course-folder > button');
-    if (folderButtons.length > 3) {
-        const folderIndex = parseInt(window.location.hash.replace("#folder-", ''));
-        if (!isNaN(folderIndex) && folderIndex > 0 && folderButtons[folderIndex]) {
-            folderButtons[folderIndex].click();
+const folderName = window.location.hash.replace("#folder:", '');
+if (folderName) {
+    let anchorJumpInterval = setInterval(() => {
+        let folderButtons = nodes('.course-folder > button');
+        const folderButton = folderButtons.find(e => e.innerText.replace(/\W/g, '') === folderName);
+        if (folderButton) {
+            folderButton.click();
             clearInterval(anchorJumpInterval);
         }
-    }
-}, 500);
+    }, 500);
+}
