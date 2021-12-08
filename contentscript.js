@@ -15,12 +15,22 @@ function updateNodes(settingName, selector, fn) {
     )
 }
 
+const cache = new Map();
 function ifEnabled(settingName, fn) {
-    chrome.storage.sync.get([settingName], function (result) {
-        if (!result[settingName]) {
+    if (cache.has(settingName)) {
+        if (!cache.get(settingName)) {
             fn();
         }
-    })
+    } else {
+        chrome.storage.sync.get([settingName], function (result) {
+            cache.set(settingName, result[settingName])
+            if (!cache.get(settingName)) {
+                fn();
+            }
+        })
+    }
+
+
 }
 
 setInterval(() => {
