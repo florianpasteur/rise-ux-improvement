@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "description": "Add functionalities to Rise to help navigate and use the site",
   "short_name": "Rise UX",
-  "permissions": [],
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": [
@@ -14,7 +16,8 @@
         "contentscript.js"
       ],
       "css": [
-        "style.css"
+        "style.css",
+        "mvp.css"
       ]
     }
   ],
