@@ -87,7 +87,7 @@ setInterval(() => {
             }
         };
         codespanInsert.addEventListener('click', searchAndReplace(text => `<span style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 0.3px 5px; background: rgb(245, 247, 248); border-radius: 4px;">${text.textContent}</span>`));
-        codeBlockInsert.addEventListener('click', searchAndReplace(text => `<p style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 0.3px 5px; background: rgb(245, 247, 248); border-radius: 4px;">${text.textContent}</p>`));
+        codeBlockInsert.addEventListener('click', searchAndReplace(text => `<p style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 20px 30px; background: rgb(245, 247, 248); border-radius: 4px;">${text.textContent}</p>`));
 
         e.append(codespanInsert)
         e.append(codeBlockInsert)
