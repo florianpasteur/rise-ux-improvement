@@ -63,6 +63,25 @@ setInterval(() => {
             editContentElement.parentNode.prepend(a);
         }
     });
+
+    updateNodes('codeSpanInsert', '.fr-toolbar', (e, i) => {
+        const button = document.createElement('button');
+        button.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i>";
+        button.addEventListener('click', function () {
+            const selection = document.getSelection();
+            if (selection) {
+                let text = "";
+                if (selection.baseNode.nodeName === "#text") {
+                    text = selection.baseNode;
+                    selection.baseNode.replaceWith("CODESPANTOREPLACE")
+                    const innerHTML = selection.baseNode.parentNode.innerHTML;
+                    selection.baseNode.parentNode.innerHTML = innerHTML.replace('CODESPANTOREPLACE', `<span style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 0.3px 5px; background: rgb(245, 247, 248); border-radius: 4px;">${text.textContent}</span>`)
+                }
+            }
+        });
+
+        e.append(button)
+    });
 }, 500);
 
 ifEnabled('bookmarks', () => {
