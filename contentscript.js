@@ -67,8 +67,8 @@ setInterval(() => {
     updateNodes('codeSpanInsert', '.fr-toolbar', (e, i) => {
         const codespanInsert = document.createElement('button');
         const codeBlockInsert = document.createElement('button');
-        codespanInsert.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i>";
-        codeBlockInsert.innerHTML = "<i class=\"fa fa-terminal\" aria-hidden=\"true\"></i>";
+        codespanInsert.innerHTML = `<i class="fa fa-code" aria-hidden="true"></i>`;
+        codeBlockInsert.innerHTML = `<i class="fa fa-terminal" aria-hidden="true"></i>`;
         [codespanInsert, codeBlockInsert].forEach(b => {
             b.classList.add("fr-command")
             b.classList.add("fr-btn")
@@ -77,17 +77,16 @@ setInterval(() => {
         const searchAndReplace = template  => function () {
             const selection = document.getSelection();
             if (selection) {
-                let text = "";
                 if (selection.baseNode.nodeName === "#text") {
-                    text = selection.baseNode;
-                    selection.baseNode.replaceWith("CODESPANTOREPLACE")
+                    const textContent = selection.toString();
+                    selection.baseNode.replaceWith(selection.baseNode.textContent.replace(textContent, "TEXTOTREPLACE"))
                     const innerHTML = selection.baseNode.parentNode.innerHTML;
-                    selection.baseNode.parentNode.innerHTML = innerHTML.replace('CODESPANTOREPLACE', template(text))
+                    selection.baseNode.parentNode.innerHTML = innerHTML.replace('TEXTOTREPLACE', template(textContent))
                 }
             }
         };
-        codespanInsert.addEventListener('click', searchAndReplace(text => `<span style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 0.3px 5px; background: rgb(245, 247, 248); border-radius: 4px;">${text.textContent}</span>`));
-        codeBlockInsert.addEventListener('click', searchAndReplace(text => `<p style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 20px 30px; background: rgb(245, 247, 248); border-radius: 4px;">${text.textContent}</p>`));
+        codespanInsert.addEventListener('click', searchAndReplace(text => `<span style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 0.3px 5px; background: rgb(245, 247, 248); border-radius: 4px;">${text}</span>`));
+        codeBlockInsert.addEventListener('click', searchAndReplace(text => `<p style="color: rgb(96, 110, 138); border: 1px solid rgb(231, 233, 242); padding: 20px 30px; background: rgb(245, 247, 248); border-radius: 4px;">${text}</p>`));
 
         e.append(codespanInsert)
         e.append(codeBlockInsert)
