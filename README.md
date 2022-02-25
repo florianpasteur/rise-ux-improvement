@@ -4,6 +4,37 @@
 
 This extension will alter the normal behaviour of rise, use at your own risk. 
 
+# Installation
+
+## With git
+
+```
+mkdir -p ~/.chrome-extensions/ && cd cd ~/.chrome-extensions/ && git clone https://github.com/florianpasteur/rise-ux-improvement.git
+```
+
+## Direct download
+
+First download the `zip` file of the extension here : [rise-ux-improvement-chrome-extension.zip](https://github.com/florianpasteur/rise-ux-improvement/archive/refs/heads/master.zip)
+
+Unzip the content of the zip at the location of your convenience, for example you could create a folder in your home: `~/.chrome-extensions/`
+
+## On chrome
+
+From the menu, go to `More tools > Extensions` and activate the `Developer mode`
+
+![Extensions](./docs/media/extension-menu.png)
+
+![Developer Mode button](./docs/media/developer-mode.png)
+
+You're now able to load the extension, click on `Load unpacked` and select the location where you've unzipped the extension.
+
+![Load unpacked button](./docs/media/load-extension-options.png)
+
+You should now see the extension in your list:
+
+![Extension preview in list](./docs/media/extension-preview-list.png)
+
+
 # Functionalities
 
 Listed below the functionalities added by the extension
@@ -26,20 +57,3 @@ Click on a folder then you can bookmark the page
 
 The sidebar for the folder selection is wider, useful for long folder names
 
-# Installation
-
-First download the `zip` file of the extension here : [rise-ux-improvement-chrome-extension.zip](https://github.com/florianpasteur/rise-ux-improvement/archive/refs/heads/master.zip)
-
-Unzip the content of the zip at the location of your convenience, for example you could create a folder in your home: `~/.chrome-extensions/`
-
-Go to [chrome://extensions/](chrome://extensions/) and activate the `Developer mode`
-
-![Developer Mode button](./docs/media/developer-mode.png)
-
-You're now able to load the extension, click on `Load unpacked` and select the location where you've unzipped the extension.
-
-![Load unpacked button](./docs/media/load-extension-options.png)
-
-You should now see the extension in your list:
-
-![Extension preview in list](./docs/media/extension-preview-list.png)
