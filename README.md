@@ -22,7 +22,7 @@ Unzip the content of the zip at the location of your convenience, for example yo
 
 From the menu, go to `More tools > Extensions` and activate the `Developer mode`
 
-![Extensions](./docs/media/extension-menu.png)
+![Extensions](./docs/media/extension-menu-chrome.png)
 
 ![Developer Mode button](./docs/media/developer-mode.png)
 
