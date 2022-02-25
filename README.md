@@ -9,7 +9,7 @@ This extension will alter the normal behaviour of rise, use at your own risk.
 ## With git
 
 ```
-mkdir -p ~/.chrome-extensions/ && cd cd ~/.chrome-extensions/ && git clone https://github.com/florianpasteur/rise-ux-improvement.git
+mkdir -p ~/.chrome-extensions/ && cd ~/.chrome-extensions/ && git clone https://github.com/florianpasteur/rise-ux-improvement.git
 ```
 
 ## Direct download
