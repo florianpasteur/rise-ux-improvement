@@ -29,9 +29,36 @@ function ifEnabled(settingName, fn) {
             }
         })
     }
-
-
 }
+
+
+function createHtmlButton(innerHtml, classList, onClick) {
+    const button = document.createElement('button');
+    button.innerHTML = innerHtml;
+    classList.forEach(className => {
+        button.classList.add(className)
+    })
+    button.addEventListener('click', onClick);
+
+    return button;
+}
+
+function  riseSchema () {
+    const location = ("" + window.location).replace(/#.*$/, '');
+    const pages = Array.from(document.querySelectorAll('input[placeholder="Add a lesson title..."]'))
+        .map(element => {
+            const id = element.id.substr("input-".length);
+            return ({
+                title: element.value,
+                id: id,
+                risePage: location + '#/author/details/' + id,
+                markdownLocation: "./",
+                skip: true
+            });
+        });
+    return JSON.stringify(pages.slice(0,-1));
+}
+
 
 setInterval(() => {
     updateNodes('newTabCourses', 'div[data-ba-course-id]', e => {
@@ -91,6 +118,15 @@ setInterval(() => {
         e.append(codespanInsert)
         e.append(codeBlockInsert)
     });
+
+    updateNodes('riseSchemaBtn', '.course-layout', (e) => {
+        e.prepend(document.createElement('hr'))
+        e.prepend(createHtmlButton(`<i class="fa fa-clipboard" aria-hidden="true"></i> Copy rise schema`, ["fr-command", "fr-btn", "btn-font_awesome"], function() {
+            console.log(this);
+            navigator.clipboard.writeText(riseSchema()).then(() => console.log("Copied !"))
+        }))
+
+    })
 }, 500);
 
 ifEnabled('bookmarks', () => {

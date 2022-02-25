@@ -3,6 +3,7 @@ const options = [
     'newTabLessons',
     'largeSidebar',
     'bookmarks',
+    'riseSchemaBtn',
 ];
 
 chrome.storage.sync.get(options, function (result) {
