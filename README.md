@@ -18,7 +18,9 @@ First download the `zip` file of the extension here : [rise-ux-improvement-chrom
 
 Unzip the content of the zip at the location of your convenience, for example you could create a folder in your home: `~/.chrome-extensions/`
 
-## On chrome
+## Installation instructions
+
+<video src="./docs/media/installation-instructions.mp4"></video>
 
 From the menu, go to `More tools > Extensions` and activate the `Developer mode`
 
