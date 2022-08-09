@@ -20,7 +20,7 @@ Unzip the content of the zip at the location of your convenience, for example yo
 
 ## Installation instructions
 
-<video src="./docs/media/installation-instructions.mp4"></video>
+https://github.com/florianpasteur/rise-ux-improvement/blob/master/docs/media/installation-instructions.mp4?raw=true
 
 From the menu, go to `More tools > Extensions` and activate the `Developer mode`
 
