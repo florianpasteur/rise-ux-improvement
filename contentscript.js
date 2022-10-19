@@ -71,7 +71,7 @@ setInterval(() => {
         e.appendChild(a);
     });
 
-    updateNodes('bookmarks', '.course-folder > button', (e) => {
+    updateNodes('bookmarks', '.course-folder-legacy > button', (e) => {
         e.addEventListener('click', function () {
             window.location = ("" + window.location).replace(/#.*$/, '') + "#folder:" + this.innerText.replace(/\W/g, '');
         });
@@ -133,7 +133,7 @@ ifEnabled('bookmarks', () => {
     const folderName = window.location.hash.replace("#folder:", '');
     if (folderName) {
         let anchorJumpInterval = setInterval(() => {
-            let folderButtons = nodes('.course-folder > button');
+            let folderButtons = nodes('.course-folder-legacy > button');
             const folderButton = folderButtons.find(e => e.innerText.replace(/\W/g, '') === folderName);
             if (folderButton) {
                 folderButton.click();
