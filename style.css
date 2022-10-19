@@ -13,3 +13,8 @@ div[data-ba-course-id] a.button--outline {
 .large-side-bar  .courses-list .courses-layout-wrapper {
     left: 50rem !important;
 }
+
+
+.large-side-bar .courses-folder-sidebar-legacy {
+    width: auto !important;
+}

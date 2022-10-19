@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Rise UX Improvement Extension",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Add functionalities to Rise to help navigate and use the site",
   "short_name": "Rise UX",
   "permissions": [
@@ -22,7 +22,14 @@
     }
   ],
   "web_accessible_resources": [
-    "style.css"
+    {
+      "resources": [
+        "style.css"
+      ],
+      "matches": [],
+      "extension_ids": [],
+      "use_dynamic_url": false
+    }
   ],
   "browser_action": {
     "default_title": "Settings",
