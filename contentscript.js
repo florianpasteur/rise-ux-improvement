@@ -43,20 +43,20 @@ function createHtmlButton(innerHtml, classList, onClick) {
     return button;
 }
 
-function  riseSchema () {
+function  riseSchema (locations) {
     const location = ("" + window.location).replace(/#.*$/, '');
     const pages = Array.from(document.querySelectorAll('input[placeholder="Add a lesson title..."]'))
-        .map(element => {
+        .map((element, index) => {
             const id = element.id.substr("input-".length);
             return ({
                 title: element.value,
-                id: id,
                 risePage: location + '#/author/details/' + id,
-                markdownLocation: "./",
-                skip: true
+                markdownLocation: locations[index] || "./",
+                markdownFile: "README.md"
             });
         });
-    return JSON.stringify(pages.slice(0,-1));
+    const string = JSON.stringify(pages.slice(0,-1));
+    return string.substr(1, string.length-2);
 }
 
 
@@ -120,10 +120,20 @@ setInterval(() => {
     });
 
     updateNodes('riseSchemaBtn', '.course-layout', (e) => {
+        const createInput = (placeholder) => {
+            const input = document.createElement('input');
+            input.placeholder = placeholder;
+            return input;
+        }
+        const basePath = createInput("Base Path");
+        const folders = createInput("Folders");
         e.prepend(document.createElement('hr'))
+        e.prepend(folders);
+        e.prepend(basePath);
         e.prepend(createHtmlButton(`<i class="fa fa-clipboard" aria-hidden="true"></i> Copy rise schema`, ["fr-command", "fr-btn", "btn-font_awesome"], function() {
             console.log(this);
-            navigator.clipboard.writeText(riseSchema()).then(() => console.log("Copied !"))
+            const locations = (folders.value || '').split(" ").map(folder => basePath.value + "/" + folder)
+            navigator.clipboard.writeText(riseSchema(locations)).then(() => console.log("Copied !"))
         }))
 
     })
