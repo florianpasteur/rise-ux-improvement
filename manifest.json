@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rise UX Improvement Extension",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Add functionalities to Rise to help navigate and use the site",
   "short_name": "Rise UX",
   "permissions": [
@@ -16,7 +16,7 @@
         "contentscript.js"
       ],
       "css": [
-        "style.css",
+        "style.css"
       ]
     }
   ],
