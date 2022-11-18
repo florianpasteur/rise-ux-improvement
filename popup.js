@@ -2,7 +2,6 @@ const options = [
     'newTabCourses',
     'newTabLessons',
     'largeSidebar',
-    'bookmarks',
     'riseSchemaBtn',
 ];
 

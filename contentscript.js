@@ -71,12 +71,6 @@ setInterval(() => {
         e.appendChild(a);
     });
 
-    updateNodes('bookmarks', '.course-folder-legacy > button', (e) => {
-        e.addEventListener('click', function () {
-            window.location = ("" + window.location).replace(/#.*$/, '') + "#folder:" + this.innerText.replace(/\W/g, '');
-        });
-    });
-
     updateNodes('newTabLessons', '.course-outline-lesson .course-outline-lesson__action', (e, i) => {
         const id = (nodes('.course-outline-lesson input')[i].id + "").replace('input-', '');
         const a = document.createElement('a');
@@ -139,19 +133,6 @@ setInterval(() => {
     })
 }, 500);
 
-ifEnabled('bookmarks', () => {
-    const folderName = window.location.hash.replace("#folder:", '');
-    if (folderName) {
-        let anchorJumpInterval = setInterval(() => {
-            let folderButtons = nodes('.course-folder-legacy > button');
-            const folderButton = folderButtons.find(e => e.innerText.replace(/\W/g, '') === folderName);
-            if (folderButton) {
-                folderButton.click();
-                clearInterval(anchorJumpInterval);
-            }
-        }, 500);
-    }
-})
 
 ifEnabled('largeSidebar', () => {
     setTimeout(() => {
