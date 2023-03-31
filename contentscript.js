@@ -129,8 +129,21 @@ setInterval(() => {
             const locations = (folders.value || '').split(" ").map(folder => basePath.value + "/" + folder)
             navigator.clipboard.writeText(riseSchema(locations)).then(() => console.log("Copied !"))
         }))
-
     })
+
+
+    const blockId = new URLSearchParams(window.location.search).get("block");
+    if (blockId) {
+        const iframe = document.querySelector('iframe').contentWindow;
+        const blockElement = iframe.document.querySelector(`[data-block-id="${blockId}"]`);
+        if (blockElement) {
+            if (!nodeUpdated.includes(blockElement)) {
+                const y = blockElement.getBoundingClientRect().y;
+                iframe.document.querySelector('#page-wrap').scrollTo(0, y);
+                nodeUpdated.push(blockElement)
+            }
+        }
+    }
 }, 500);
 
 
